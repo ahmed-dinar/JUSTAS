@@ -1,0 +1,90 @@
+
+.mf-container{
+	margin: 30px auto;
+}
+
+
+#progressbar-container{
+	width: 500px;
+	margin: 0px auto 50px auto;
+}
+
+#progressbar{
+	margin:0;
+	padding:0;
+	font-size:18px;
+}
+
+#progressbar li{
+	border: 1px solid #ccc;
+	margin-right: 30px;
+	font-family: Lucida Sans;
+	font-size: 30px;
+	padding: 8px 15px;
+	border-radius: 8px;
+}
+
+.active-progressbar{
+	color:red;
+	background: #018DCA;
+	color: #fff;
+}
+	
+.mf-fs{
+	position: relative;
+	display:none;
+	width: 700px;
+	margin: 0px auto 0px auto;
+	border: 0px;
+	border: 1px solid #343D45;
+}
+
+#mf-fs-first{
+    display:block;
+	border-radius:5px;
+}
+	
+li{
+	display:inline;
+}
+
+.cell{
+	vertical-align: inherit;
+	font-style: normal; 
+	font-variant: normal;
+}
+
+
+#af-tables{
+	font-family: ahoma; 
+	font-variant: normal; 
+	margin: 0px 0px auto 0px;
+	padding: 20px;
+}
+
+#af-tables th {
+	width: auto;
+	text-align: left;
+	padding-right: 10px;
+	font-family: Lucida Sans;
+	font-size: 13px;
+}
+
+
+.bt_btn{
+	margin: 0px 0px 0px 220px;
+}
+
+legend {
+  border:1px solid #ccc;
+  text-align:right;
+  padding: 10px;
+  background: #4A5662;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.sel-input{
+	padding: 5px;
+	margin-bottom: 8px;
+}
