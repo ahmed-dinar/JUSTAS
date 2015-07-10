@@ -150,33 +150,33 @@
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call
                     "extraData": "name=eric",
-                    "alertText": "* This user is already taken",
+                    "alertText": "* This use 36 r is already taken",
                     "alertTextLoad": "* Validating, please wait"
                 },
 				"ajaxUserCallPhp": {
-                    "url": "phpajax/ajaxValidateFieldUser.php",
+                    "url": "http://localhost/justadmission/user/check",
                     // you may want to pass extra data on the ajax call
                     "extraData": "name=eric",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-                    "alertTextOk": "* This username is available",
-                    "alertText": "* This user is already taken",
+                    "alertTextOk": "* This usernamsssse is available",
+                    "alertText": "* This userssss is already taken",
                     "alertTextLoad": "* Validating, please wait"
                 },
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
                     // error
-                    "alertText": "* This name is already taken",
+                    "alertText": "* This ad name is already taken",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-                    "alertTextOk": "* This name is available",
+                    "alertTextOk": "* This aaa name is available",
                     // speaks by itself
                     "alertTextLoad": "* Validating, please wait"
                 },
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
-	                    "url": "phpajax/ajaxValidateFieldName.php",
+	                    "url": "http://localhost/justadmission/user/check",
 	                    // error
-	                    "alertText": "* This name is already taken",
+	                    "alertText": "* This pop name is already taken",
 	                    // speaks by itself
 	                    "alertTextLoad": "* Validating, please wait"
 	                },

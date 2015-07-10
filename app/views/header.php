@@ -7,12 +7,11 @@
 
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/style.css" />
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/multi-style.css" />
-    <script src="<?php echo SITE_URL; ?>/public/js/jquery.min.js" ></script>
-    <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine-en.js"></script>
-    <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine.js"></script>
+    <script src="<?php echo SITE_URL; ?>/public/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine-en.js" charset="utf-8"></script>
+    <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine.js" charset="utf-8"></script>
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/public/css/validationEngine.jquery.css" type="text/css"/>
 
-    
 </head>
 <body style="background-color: #f6fafc;">
 

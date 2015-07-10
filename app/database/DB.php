@@ -2,7 +2,7 @@
 
 
 /*
-*DB class is used for updating,quering databse using PDO 
+*DB class is used for updating,quering database using PDO 
 */
 class DB {
 
