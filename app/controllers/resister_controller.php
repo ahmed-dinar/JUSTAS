@@ -23,23 +23,72 @@ class resister extends Controller{
 
   			//check if form loaded propely
   			if( Token::check(Input::get('token')) ){
-  				echo "Resitration Processing...";
+  				  
+            //processing resistration and catch exception
+            if( $this->model->process() ){
+               Session::flush('resSuccess','Resistration successfull,You can login now!');
+               header("Location: ".SITE_URL."/login");
+            }
+            else{
+               echo "Resistration unseccessfull! Unknown error";
+            }
   			}
   			else{
-  				require_once SITE_PATH.'/app/controllers/error_controller.php';
+              Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
+      				require_once SITE_PATH.'/app/controllers/error_controller.php';
 	            $control = new error();
 	            $control->index();
 	            return FALSE;
   			}
   		}
   		else{
-  			require_once SITE_PATH.'/app/controllers/error_controller.php';
+            Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
+      			require_once SITE_PATH.'/app/controllers/error_controller.php';
             $control = new error();
             $control->index();
             return FALSE;
   		}
 
   	}
+
+    public function checkUserID(){
+          
+        if(!isset($_REQUEST['fieldValue']) || !isset($_REQUEST['fieldId'])){
+            Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
+            require_once SITE_PATH.'/app/controllers/error_controller.php';
+            $control = new error();
+            $control->index();
+            return FALSE;
+        }
+
+        $validateValue=$_REQUEST['fieldValue'];
+        $validateId=$_REQUEST['fieldId'];
+
+
+        $validateError= "This username is already taken";
+        $validateSuccess= "This username is available";
+
+
+        /* RETURN VALUE */
+        $arrayToJs = array();
+        $arrayToJs[0] = $validateId;
+
+        $exists = $this->model->checkExists($validateValue);
+
+        if(!$exists){    // validate??
+          $arrayToJs[1] = true;     // RETURN TRUE
+          echo json_encode($arrayToJs);     // RETURN ARRAY WITH success
+        }else{
+          for($x=0;$x<1000000;$x++){
+            if($x == 990000){
+              $arrayToJs[1] = false;
+              echo json_encode($arrayToJs);   // RETURN ARRAY WITH ERROR
+            }
+          }
+          
+        }
+    }
+
     
 	
 }

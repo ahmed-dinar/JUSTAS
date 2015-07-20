@@ -5,7 +5,7 @@
 
 
 #progressbar-container{
-	width: 500px;
+	width: 400px;
 	margin: 0px auto 50px auto;
 }
 
@@ -19,15 +19,16 @@
 	border: 1px solid #ccc;
 	margin-right: 30px;
 	font-family: Lucida Sans;
-	font-size: 30px;
+	font-size: 18px;
 	padding: 8px 15px;
-	border-radius: 8px;
+	border-radius: 4px;
 }
 
 .active-progressbar{
 	color:red;
-	background: #018DCA;
+	background: #4C9CDF;
 	color: #fff;
+	border: none;
 }
 	
 .mf-fs{
@@ -36,7 +37,18 @@
 	width: 700px;
 	margin: 0px auto 0px auto;
 	border: 0px;
-	border: 1px solid #343D45;
+	border: 1px solid #ccc;
+}
+
+.mf-fs h3{
+	text-decoration: underline;
+	font-family: Lucida Sans;
+	margin-left: 30px;
+}
+
+#cl-fl{
+	border: 1px solid #bbb;
+	margin-bottom: 20px;
 }
 
 #mf-fs-first{
@@ -67,7 +79,8 @@ li{
 	text-align: left;
 	padding-right: 10px;
 	font-family: Lucida Sans;
-	font-size: 13px;
+	font-size: 15px;
+	color: rgba(0,0,0,0.6);
 }
 
 

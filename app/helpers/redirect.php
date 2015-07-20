@@ -1,5 +1,9 @@
 <?php
 
+
+/*
+    Rediert to anywhere valid
+*/
 class Redirect {
 
     public static function to($location = null){

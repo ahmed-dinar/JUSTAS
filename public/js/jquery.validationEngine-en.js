@@ -154,12 +154,12 @@
                     "alertTextLoad": "* Validating, please wait"
                 },
 				"ajaxUserCallPhp": {
-                    "url": "http://localhost/justadmission/user/check",
+                    "url": "http://localhost/justadmission/resister/checkUserID",
                     // you may want to pass extra data on the ajax call
                     "extraData": "name=eric",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-                    "alertTextOk": "* This usernamsssse is available",
-                    "alertText": "* This userssss is already taken",
+                    "alertTextOk": "* This username is available",
+                    "alertText": "* This username is already taken",
                     "alertTextLoad": "* Validating, please wait"
                 },
                 "ajaxNameCall": {
@@ -174,7 +174,7 @@
                 },
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
-	                    "url": "http://localhost/justadmission/user/check",
+	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* This pop name is already taken",
 	                    // speaks by itself

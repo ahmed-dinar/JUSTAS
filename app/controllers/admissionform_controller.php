@@ -8,6 +8,10 @@ class admissionform extends Controller{
 
 	public function index(){
 		$this->view->render("admissionform/index");
+	}	
+
+	public function run(){
+		
 	}
 
 }
