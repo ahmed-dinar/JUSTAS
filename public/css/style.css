@@ -14,6 +14,7 @@ body
     padding: 0;
     font-family: georgia, times, "times new roman", serif; 
     background: #EAE9E1;
+    
 }
 
 .full_w{
@@ -326,22 +327,39 @@ body
 }
 
 #flushes{
-    width: 380px;
-    margin: 0px auto;
-    padding: 10px 10px;
-    border-radius: 7px;
+    background: white;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 400px;
+    margin: 30px auto;
+    height: auto;
     position: relative;
+    border-radius: 3px;
+    border:1px solid #000;
 }
 
 #flushes h3{
     font-family:  Tahoma;
-    color: #fff;
+    color: white;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
     margin: 0px auto;
-    width: 80%;
+    width: 70%;
+    float : left;
+    background:red;
 }
 
+.pop-close{
+	cursor:pointer;
+	float:right;
+	color:#fff;
+}
 
+.e-heading{
+  color: Tahoma;
+  width: 50%;
+  margin: 30px auto 10px auto;
+
+}
 
 /************form styling*******************************************************/
 
@@ -385,8 +403,7 @@ legend {
 }
 
 
-
-.form-style input[type=text],input[type=password],input[type=email]{
+.input-field{
     width: 200px;
     padding: 3px 0px;
 }
@@ -401,8 +418,8 @@ legend {
   overflow: hidden;
   /*CSS counters to number the steps*/
   counter-reset: step;
-  width: 500px;
-  margin: 0px auto 20px auto;
+  width: 600px;
+  margin: 0px auto 50px auto;
   font-family: verdana,arial,helvetica,sans-serif; 
 }
 #progressbar li {
@@ -413,6 +430,9 @@ legend {
   position: relative;
   border: 0px solid #000;
   margin-right: 30px;
+  width: 140px;
+  text-align: center;
+  text-transform: uppercase;
 }
 #progressbar li:before {
   content: counter(step);
@@ -424,19 +444,19 @@ legend {
   background: #000;
   border-radius: 3px;
   margin: 0px auto;
-  padding: 5px 5px 5px 10px;
+  padding: 5px 10px 5px 10px;
 
 }
 /*progressbar connectors*/
 #progressbar li:after {
   content: '';
-  width: 100%;
+  width: 101%;
   height: 2px;
   background: #000;
   position: relative;
   float: left;
   top: -28px;
-  left: -68%;
+  left: -60%;
 }
 #progressbar li:first-child:after {
   /*connector not needed before the first step*/
@@ -447,4 +467,11 @@ legend {
 #progressbar li.active:before,  #progressbar li.active:after{
   background: #27AE60;
   color: white;
+}
+
+
+.show-input{
+   border: 1px solid #eee;
+   padding: 7px 1px;
+  width: 540px;
 }

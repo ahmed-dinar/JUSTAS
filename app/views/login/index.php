@@ -23,7 +23,7 @@ else{
 	if(Session::exists('signin-first')){
 		echo '<div id="flushes" style="background: red;"><h3>';
 		echo Session::flush('signin-first');
-		echo "</h3></div>";
+		echo "</h3><div class='pop-close'>X</div></div>";
 	}
 
 ?>
@@ -31,6 +31,10 @@ else{
 	
 
 	<script>
+		$(document).on('click','.pop-close',function(){
+		    $(this).parent().remove();
+		});
+	
 		jQuery(document).ready(function(){
 			jQuery("#logform").validationEngine();
 			$("#logform").bind("jqv.field.result", function(event, field, errorFound, prompText){ console.log(errorFound) })
