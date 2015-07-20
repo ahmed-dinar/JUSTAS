@@ -2,6 +2,7 @@
 
 //start the sesson
 session_start();
+$_SESSION['captcha_code'] = "";
 
 
 //this global array is for database quering
@@ -74,6 +75,19 @@ spl_autoload_register(function($className) {
     } 
 
 });
+
+
+if( Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))  ){
+    
+    $hash = Cookie::get(Config::get('remember/cookie_name'));
+    $hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash) );
+    
+    if($hashCheck->count()){
+        $user = new Users($hashCheck->first()->user_id);
+        $user->login();
+    }
+    
+}
 
 
 ?>

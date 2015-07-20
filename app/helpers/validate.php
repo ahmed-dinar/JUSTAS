@@ -1,5 +1,9 @@
 <?php
 
+/*
+    NOT USED
+*/
+
 class Validate {
 
     private $_passed = false,

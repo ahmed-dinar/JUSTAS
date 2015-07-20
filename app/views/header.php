@@ -1,19 +1,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
     <title>Admission Test</title>
 
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/style.css" />
-    <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/multi-style.css" />
+
     <script src="<?php echo SITE_URL; ?>/public/js/jquery-1.8.2.min.js" ></script>
+    
     <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine-en.js" charset="utf-8"></script>
     <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine.js" charset="utf-8"></script>
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/public/css/validationEngine.jquery.css" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo SITE_URL; ?>/public/css/template.css" type="text/css"/>
 
 </head>
-<body style="background-color: #f6fafc;">
+<body style="background-color: #D8D7E3;">
 
 	<div class="full_w Top"></div>
 
@@ -31,8 +33,21 @@
 
 
 				<div class="log_in">
-					<a href="<?php echo SITE_URL; ?>/login" class="medium button blue">Login</a>
-					<a href="<?php echo SITE_URL; ?>/resister" class="medium button blue">Resister</a>
+					<?php 
+						$user  = new Users();
+						if($user->isLoggedIn()){
+					?>
+						<a href="<?php echo SITE_URL; ?>/login/logout" class="medium button blue">Log Out</a>
+					<?php
+						}
+						else{
+					?>
+						<a href="<?php echo SITE_URL; ?>/login" class="medium button blue">Login</a>
+						<a href="<?php echo SITE_URL; ?>/resister" class="medium button blue">Resister</a>
+					<?php
+						}
+					?>
+					
 				</div>
 
 

@@ -2,11 +2,10 @@ $(document).ready(function(){
 	
 	$(".next_btn").click(function(){  
 
-		var ret = $("#application-form").validationEngine('validate',{showArrow: false});
-
-		if( ret == false ){
+		/*if( jQuery("#application-form").validationEngine('validate') == false ){
 			return 0;
-		}
+		}*/
+
 	         //Function runs on NEXT button click 
 		$(this).parent().next().fadeIn('slow');
 		$(this).parent().css({'display':'none'});

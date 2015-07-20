@@ -10,8 +10,4 @@ class home extends Controller{
 		$this->view->render("home/index");
 	}
 
-	public function test(){
-		echo "Inside index test<br />";
-	}
-
 }

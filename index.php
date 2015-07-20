@@ -7,7 +7,6 @@
 	define('SITE_PATH', realpath(dirname(__FILE__)) );
 	define('SITE_URL', "http://localhost/justadmission" );
 
-
 	// require init for initializing everything
 	require_once SITE_PATH.'/app/init.php';
 

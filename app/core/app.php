@@ -31,6 +31,7 @@ class app{
             require_once $file;
         }
         else{
+            Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
             require_once SITE_PATH.'/app/controllers/error_controller.php';
             $control = new error();
             $control->index();
@@ -55,6 +56,7 @@ class app{
             
             //if it is index then skip it and show error
             if( $url[1] === 'index' ){
+                Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
                 require_once 'app/controllers/error_controller.php';
                 $control = new error();
                 $control->index();
@@ -67,6 +69,7 @@ class app{
                 $params = $url ? array_values($url) : [];
             }
             else{
+                Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
                 require_once 'app/controllers/error_controller.php';
                 $control = new error();
                 $control->index();

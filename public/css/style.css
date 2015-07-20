@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html{
     height: 100%;
 }
@@ -181,10 +187,7 @@ body
 
 
 /*********login form***********/
-
-
 #fs {
-
     background: white;
     padding: 20px 30px;
     box-sizing: border-box;
@@ -205,17 +208,18 @@ body
 }
 
 .in-f {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
+    padding: 10px 10px;
+    border: 1px solid rgba(0,0,0,.5);
     border-radius: 3px;
     margin-bottom: 10px;
     width: 420px;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 13px;
+    font-family: tahoma;
+    color: #000;
+    font-size: 16px;
     float: left;
 }
+
 
 .in-fl {
     padding:  10px;
@@ -228,6 +232,22 @@ body
     color: #2C3E50;
     font-size: 13px;
     float: left;
+}
+
+.in-fl:focus {
+    border: 1px solid #ccc;
+    outline: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
+}
+
+.in-f:focus{
+    border: 1px solid #ccc;
+    outline: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 5px #96c7ec;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 5px #96c7ec;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 5px #96c7ec;
 }
 
 /*buttons*/
@@ -276,4 +296,155 @@ body
     height: 100%;
     padding: 10px;
     float: right;
+}
+
+
+.aud{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    float: left;
+    padding: 10px 5px;
+    margin: 0px 0px 10px 0px;
+    width: 95%;
+    position: relative;
+    font-family: "Whitney SSm A","Whitney SSm B",verdana,"Lucida Grande",sans-serif;
+}
+
+.autosuggestUL{
+    list-style: undecorated;
+    margin: 0px 0px 0px 0px;
+    float:  left;
+    
+    font-size: 14px;
+}
+
+.autosuggestUL li{
+    float:  left;
+    margin-right: 8px;
+    color: blue;
+    cursor: pointer;
+}
+
+#flushes{
+    width: 380px;
+    margin: 0px auto;
+    padding: 10px 10px;
+    border-radius: 7px;
+    position: relative;
+}
+
+#flushes h3{
+    font-family:  Tahoma;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    margin: 0px auto;
+    width: 80%;
+}
+
+
+
+/************form styling*******************************************************/
+
+.form-style {
+  font: 14px verdana,arial,helvetica,sans-serif; 
+  white-space: nowrap;
+  width: 100%;
+  margin: 0px;
+  border: 0px;
+}
+
+.form-style > fieldset {
+  display:none;
+  padding: 0;
+  border: 0px;
+}
+
+.form-style > fieldset > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+.form-style > fieldset > div > div > div {
+  margin: 0 0 5px 0;
+}
+.form-style > fieldset > div > label,
+legend {
+    width: 25%;
+  float: left;
+  padding-right: 10px;
+  text-align: right;
+}
+.form-style > fieldset > div > div,
+.form-style > fieldset > div  > div {
+  width: 75%;
+  float: right;
+}
+.form-style > fieldset > div > label {
+    font-size: 90%;
+}
+
+
+
+.form-style input[type=text],input[type=password],input[type=email]{
+    width: 200px;
+    padding: 3px 0px;
+}
+
+#first{
+    display:block;
+}
+
+/**progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  width: 500px;
+  margin: 0px auto 20px auto;
+  font-family: verdana,arial,helvetica,sans-serif; 
+}
+#progressbar li {
+  list-style-type: none;
+  color: #000;
+  font-size: 9px;
+  float: left;
+  position: relative;
+  border: 0px solid #000;
+  margin-right: 30px;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 15px;
+  display: block;
+  font: 14px verdana,arial,helvetica,sans-serif; 
+  color: #fff;
+  background: #000;
+  border-radius: 3px;
+  margin: 0px auto;
+  padding: 5px 5px 5px 10px;
+
+}
+/*progressbar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #000;
+  position: relative;
+  float: left;
+  top: -28px;
+  left: -68%;
+}
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+  background: #27AE60;
+  color: white;
 }

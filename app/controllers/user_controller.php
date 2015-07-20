@@ -7,31 +7,15 @@ class user extends Controller{
     }
 
     public function index(){
+    	Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
     	require_once SITE_PATH.'/app/controllers/error_controller.php';
 	    $control = new error();
 	    $control->index();
 	    return FALSE;
     }
 
-    public function check(){
-
-        if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ){ 
-
-              $id = $_POST['userid'];
-
-              $ret  = array();
-
-              $ret['error'] = false;
-              $ret['msg'] = $id. ' is avaivvlr';
-
-              echo json_encode($ret);
-        }
-        else{
-            require_once SITE_PATH.'/app/controllers/error_controller.php';
-            $control = new error();
-            $control->index();
-            return FALSE;
-        }
+    public function recoverpassword(){
+    	echo "<h1>Under Construction!</h1>";
     }
 
 }
