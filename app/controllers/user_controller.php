@@ -7,11 +7,7 @@ class user extends Controller{
     }
 
     public function index(){
-    	Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-    	require_once SITE_PATH.'/app/controllers/error_controller.php';
-	    $control = new error();
-	    $control->index();
-	    return FALSE;
+    	return miscellaneous::Error();
     }
 
     public function recoverpassword(){

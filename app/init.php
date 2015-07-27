@@ -76,6 +76,8 @@ spl_autoload_register(function($className) {
 
 });
 
+require_once("/app/helpers/recaptchalib.php");
+
 
 if( Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))  ){
     

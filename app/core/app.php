@@ -31,11 +31,7 @@ class app{
             require_once $file;
         }
         else{
-            Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-            require_once SITE_PATH.'/app/controllers/error_controller.php';
-            $control = new error();
-            $control->index();
-            return FALSE;
+            return miscellaneous::Error();
         }
 
 
@@ -56,11 +52,7 @@ class app{
             
             //if it is index then skip it and show error
             if( $url[1] === 'index' ){
-                Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-                require_once 'app/controllers/error_controller.php';
-                $control = new error();
-                $control->index();
-                return FALSE;
+                return miscellaneous::Error();
             }
             else if( method_exists($url[0], $url[1]) ){ //if method exists then set the method
                 $method = $url[1];
@@ -69,11 +61,7 @@ class app{
                 $params = $url ? array_values($url) : [];
             }
             else{
-                Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-                require_once 'app/controllers/error_controller.php';
-                $control = new error();
-                $control->index();
-                return FALSE;
+                return miscellaneous::Error();
             }
 
         }

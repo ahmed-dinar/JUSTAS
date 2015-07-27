@@ -6,13 +6,17 @@
     <title>Admission Test</title>
 
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/style.css" />
+    <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/captcha.css" />
 
     <script src="<?php echo SITE_URL; ?>/public/js/jquery-1.8.2.min.js" ></script>
     
     <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine-en.js" charset="utf-8"></script>
     <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/jquery.validationEngine.js" charset="utf-8"></script>
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/public/css/validationEngine.jquery.css" type="text/css"/>
-	<link rel="stylesheet" href="<?php echo SITE_URL; ?>/public/css/template.css" type="text/css"/>
+
+
+	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+	<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
 </head>
 <body style="background-color: #D8D7E3;">

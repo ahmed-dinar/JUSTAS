@@ -11,7 +11,24 @@ class admissionform extends Controller{
 	}	
 
 	public function run(){
-		
+		if( Input::exists('post') ){
+
+            //check if form loaded propely
+            if( Token::check(Input::get('token')) ){
+                echo $this->model->process();
+
+
+    
+            	
+            }
+            else{
+                return miscellaneous::Error();
+            }
+
+		}
+		else{
+			return miscellaneous::Error();
+		}
 	}
 
 }
