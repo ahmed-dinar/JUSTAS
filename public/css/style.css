@@ -151,9 +151,7 @@ body
 
 
 
-.menu_container{
-  
-}
+
 
 .menu_container ul{
       height: auto;
@@ -196,9 +194,9 @@ body
     margin: 30px auto;
     height: auto;
     position: relative;
-    border-left: 1px solid #ccc;
+    border: 1px solid #ccc;
     border-top: 3px solid #4C9CDF;
-    box-shadow: 2px 2px 5px #A9AFC2;
+   /* box-shadow: 2px 2px 5px #A9AFC2;*/
     border-radius: 3px;
 }
 
@@ -206,6 +204,10 @@ body
     font-family:  Tahoma;
     color: rgba(0,0,0,0.5);;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+#fs  fieldset{
+  border: 0px;
 }
 
 .in-f {
@@ -227,7 +229,7 @@ body
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 20px;
-    width: 340px;
+    width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
@@ -251,22 +253,9 @@ body
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 5px #96c7ec;
 }
 
-/*buttons*/
-.action-button {
-    width: 100px;
-    background: #4A5662;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-}
 
-.action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-}
+
+
 
 #photo-area{
     width: 200px;
@@ -300,117 +289,170 @@ body
 }
 
 
-.aud{
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    float: left;
-    padding: 10px 5px;
-    margin: 0px 0px 10px 0px;
-    width: 95%;
-    position: relative;
-    font-family: "Whitney SSm A","Whitney SSm B",verdana,"Lucida Grande",sans-serif;
-}
-
-.autosuggestUL{
-    list-style: undecorated;
-    margin: 0px 0px 0px 0px;
-    float:  left;
-    
-    font-size: 14px;
-}
-
-.autosuggestUL li{
-    float:  left;
-    margin-right: 8px;
-    color: blue;
-    cursor: pointer;
-}
-
 #flushes{
-    background: white;
-    padding: 20px 30px;
-    box-sizing: border-box;
-    width: 400px;
-    margin: 30px auto;
-    height: auto;
-    position: relative;
-    border-radius: 3px;
-    border:1px solid #000;
+   border: 0;
+   width: 44%;
+   margin: 0px auto 60px auto;
 }
 
 #flushes h3{
-    font-family:  Tahoma;
-    color: white;
+    font-family: "Open Sans",sans-serif;
+    background: #E94B35 none repeat scroll 0% 0%;
+    color: #FFF;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 6px;
+    width:100%;
+    float: left;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    margin: 0px auto;
-    width: 70%;
-    float : left;
-    background:red;
+    margin: 0px;
 }
 
 .pop-close{
-	cursor:pointer;
-	float:right;
-	color:#fff;
+  background : url('../img/close_icon.png') ;
+  cursor:pointer;
+  float:left;
+  width: 18px;
+  background:  none repeat scroll 0% 0%;
+  margin-top: -10px;
+  margin-left: -8px;
+  position: absolute;
 }
 
 .e-heading{
-  color: Tahoma;
-  width: 50%;
-  margin: 30px auto 10px auto;
-
+  font-family: Tahoma;
+  margin: 30px auto 20px auto;
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #bbb;
 }
 
 /************form styling*******************************************************/
-
-.form-style {
-  font: 14px verdana,arial,helvetica,sans-serif; 
-  white-space: nowrap;
+.con-form {
   width: 100%;
-  margin: 0px;
-  border: 0px;
+  margin: 0px auto;
+  border: 0;
+  font-family: "Open Sans",sans-serif;
+  position: relative;
 }
 
-.form-style > fieldset {
+.con-form fieldset{
+  border: 0;
   display:none;
-  padding: 0;
-  border: 0px;
-}
-
-.form-style > fieldset > div {
-  clear: both;
-  overflow: hidden;
-  padding: 1px;
-  margin: 0 0 10px 0;
-}
-.form-style > fieldset > div > div > div {
-  margin: 0 0 5px 0;
-}
-.form-style > fieldset > div > label,
-legend {
-    width: 25%;
-  float: left;
-  padding-right: 10px;
-  text-align: right;
-}
-.form-style > fieldset > div > div,
-.form-style > fieldset > div  > div {
-  width: 75%;
-  float: right;
-}
-.form-style > fieldset > div > label {
-    font-size: 90%;
-}
-
-
-.input-field{
-    width: 200px;
-    padding: 3px 0px;
+  padding: 0px;
+  margin: 0px auto;
+  width: 50%;
 }
 
 #first{
     display:block;
 }
+
+.con-form h4 {
+  font-size: 15px;
+  color: #2B3E51;
+  margin-bottom: 3px;
+}
+
+.con-form h5 {
+  padding-bottom: 3px;
+  margin: 0px;
+  font-size: 22px;
+  border-bottom: 1px solid #ccc;
+  color: #2B3E51;
+  font-weight: normal;
+}
+
+.con-form > div {
+  /* form element wrapper */
+  position: relative;
+  margin: 20px 0;
+}
+
+.btn-dv {
+  margin-top: 30px;
+}
+
+.btn-dv input {
+  margin-right: 10px;
+}
+
+
+
+.con-form .con-label {
+  display: block;
+}
+
+.con-form input, .con-form textarea, .con-form select, .con-form label {
+  font-size: 13px;
+
+}
+
+
+.con-form input[type="text"],
+.con-form input[type="email"],
+.con-form input[type="password"],
+.con-form textarea,
+.con-form select {
+  /* general style for input elements */
+ /* padding: 5px 5px;
+  border: 1px solid #525151;
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);*/
+
+border-radius: 1px;
+border-width: 1px;
+border-style: solid;
+border-left-style: solid;
+border-color: #ccc #D9D9D9 #D9D9D9;
+-moz-border-top-colors: none;
+-moz-border-right-colors: none;
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+border-image: none;
+background: #F0F0F0;
+  display: block;
+  width: 80%;
+  padding: 5px;
+
+}
+
+.con-form input[type="text"]:focus,
+.con-form input[type="email"]:focus,
+.con-form input[type="password"]:focus,
+.con-form textarea:focus,
+.con-form select:focus {
+  outline: none;
+  border-color: #2c97de;
+  box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
+}
+
+.btn{
+    /* button style */
+  border: none;
+  background: #0988CB;
+  border-radius: .25em;
+  padding: 10px 17px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+.btn:hover{
+  background: #316AE5;
+}
+
+.prev-btn{
+  float: left;
+}
+
+.next-btn{
+  float: left;
+}
+
 
 /**progressbar*/
 #progressbar {
@@ -458,6 +500,7 @@ legend {
   top: -28px;
   left: -60%;
 }
+
 #progressbar li:first-child:after {
   /*connector not needed before the first step*/
   content: none; 
@@ -469,9 +512,3 @@ legend {
   color: white;
 }
 
-
-.show-input{
-   border: 1px solid #eee;
-   padding: 7px 1px;
-  width: 540px;
-}

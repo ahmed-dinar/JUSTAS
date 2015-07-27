@@ -2,323 +2,220 @@
 
 $user  = new Users();
 if(!$user->isLoggedIn()){
-	Session::flush('signin-first','You need to log in to apply');
+	Session::flush('redirect',SITE_URL . '/admissionform');
+  Session::flush('signin-first','You need to log in to apply');
 	header('Location: ' . SITE_URL . '/login');
 	exit();
 }
 
 ?>
 
-	<script>
-		jQuery(document).ready(function(){
-
-
-			$('.con-b').click(function() {	
-
-				var html = "";
-			    var i = 1;
-			   $.each($('#application-form').serializeArray(), function(i, field) {
-					html += '<div><label for="">' + 
-				      field.name +
-				      ' : </label>' + 
-				      '<div>' +
-				      getf(i,field.value) +
-				      '</div>' + 
-				    '</div>';
-				    i++;
-			    });
-
-			   	html += '<div>' + 
-					      '<div>' + 
-					        '<input type="button" name="previous" class="pre_btn" value="Previous" />' +
-					        '<input type="submit" name="" class="" value="Submit" />' +
-					      '</div>' +
-					    '</div>';
-
-			    $("#all-f").html(html);
-
-			});
-
-			$(document).on('click', '.next_btn', function(){ 
-				$(this).parent().parent().parent().next().fadeIn('slow');
-				$(this).parent().parent().parent().css({'display':'none'});
-				$('.active').next().addClass('active');
-			});
-		
-			$(document).on('click', '.pre_btn', function(){  
-				$(this).parent().parent().parent().prev().fadeIn('slow');
-				$(this).parent().parent().parent().css({'display':'none'});
-				$('.active:last').removeClass('active');
-			});
-
-			
-			jQuery("#application-form").validationEngine();
-			$("#application-form").bind("jqv.field.result", function(event, field, errorFound, prompText){ console.log(errorFound) })
-		});
-
-
-		function getf(i,s){
-			var ret = '';
-			if(i>5 && i<8){
-				ret += '<textarea rows="3" cols="65" border="1px solid #eee" readonly>' + s   + '</textarea>';
-			}
-			else{
-				ret += '<input type="text" class="show-input"  value=" '  + s  +  '" readonly />';
-			}
-			return ret;
-		}
-
-	</script>
+  <script type="text/javascript" src="<?php echo SITE_URL; ?>/public/js/msf.js" charset="utf-8"></script>
 
 
 
-  <!-- progressbar -->
+  <!-- progressbar 
   <ul id="progressbar">
     <li class="active">Personal Detail</li>
     <li>Educational Detail</li>
     <li>Confirm</li>
-  </ul>
+  </ul>-->
 
   
-<form action="<?php echo SITE_URL; ?>/admissionform/run" method ="post" id="application-form" class="form-style">
+<form action="<?php echo SITE_URL; ?>/admissionform/run" method ="post" id="application-form" class="con-form" >
 
-  <!-- fieldsets -->
-  <fieldset id="first">
+    <!--FIELDSET-->
+    <fieldset id="first">
 
-    <div>
-      <label for="">Full Name : </label>
+     
+
       <div>
-      	<input type="text"  class="validate[required] input-field" name="Full-Name"   />
-      </div>
-    </div>    
+        <h4>Student's Name</h4>
+        <input type="text"  class="validate[required]" name="Full-Name" />
+      </div>      
 
-    <div>
-      <label for="">Father's Name : </label>
       <div>
-        <input type="text"  class="validate[required] input-field" name="Father-Name"   />
-      </div>
-    </div>    
+        <h4>Father's Name</h4>
+        <input type="text"  class="validate[required]" name="Father-Name" />
+      </div>      
 
-    <div>
-      <label for="">Mother's Name : </label>
       <div>
-        <input type="text"  class="validate[required] input-field" name="Mother-Name"   />
-      </div>
-    </div>
+        <h4>Mother's Name</h4>
+        <input type="text"  class="validate[required]" name="Mother-Name" />
+      </div>      
 
-    <div>
-      <label for="">Gender : </label>
       <div>
-        <select name="Gender" class="validate[required] input-field"> 
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+        <h4>Gender</h4>
+        <select name="Gender" class="validate[required]"> 
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+      </div>      
+
+      <div>
+        <h4>Date of Birth</h4>
+        <input type="text" name="Birthday" class="validate[required,custom[date]]" id="Datepicker" /> 
+      </div>      
+
+      <div>
+        <h4>Nationality</h4>
+        <select name="Nationality" class="validate[required]" >
+          <option value="Bangladeshi">Bangladeshi</option>
         </select>
-      </div>
-    </div>
-      
-      
-    <div>
-      <label for="">Date of Birth : </label>
+      </div>      
+
       <div>
-        <input placeholder="YYYY-MM-DD" value="" class="validate[required,custom[date]] input-field" type="text" name="BirthDay" /> 
-      </div>
-    </div>    
+        <h4>Present Adress</h4>
+        <textarea rows="5" name="Present-Adress" class="validate[required] " ></textarea> 
+      </div> 
 
-    <div>
-      <label for="">Nationality : </label>
       <div>
-        	<select name="Nationality" class="sel-input" >
-				<option value="Bangladeshi">Bangladeshi</option>
-			</select>
-      </div>
-    </div>    
+        <h4>Permanent Adress</h4>
+        <textarea rows="5"  name="Permanent-Adress" class="validate[required]" ></textarea>
+      </div>      
 
-    <div>
-      <label for="">Present Adress : </label>
       <div>
-        <textarea rows="3" cols="50" name="Present-Adress" class="validate[required] input-field" ></textarea> 
-      </div>
-    </div> 
+        <h4>Contact Number</h4>
+        <input type="text" name="Contact-Number"  class="validate[required,custom[phone]]" />
+      </div>      
 
-    <div>
-      <label for="">Permanent Adress : </label>
       <div>
-        <textarea rows="3" cols="50" name="Permanent-Adress" class="validate[required] input-field" ></textarea> 
-      </div>
-    </div>    
+        <h4>Upload Photo(240x240)</h4>
+        <input type="file" name="Photo" onchange="readURL(this);" class="validate[required]" >
+      </div>      
 
-    <div>
-      <label for="">Contact Number : </label>
+
+       <div class="btn-dv">
+            <input type="button" class="btn next-btn" value="Next" />
+        </div>
+    </fieldset>   
+
+
+    <!--FIELDSET-->
+    <fieldset>
+
+      <h5>Secondary School Certificate (SSC)</h5>
+
       <div>
-        <input type="text" name="Contact-Number"  class="validate[required,custom[phone]] input-field"  autocomplete="off" />
-      </div>
-    </div>
+        <h4>Roll</h4>
+        <input type="text" name="SSC-Roll"  class="validate[required,custom[integer]]" />
+      </div>   
 
-    
-    <div>
-      <label for="">Upload Photo (240x240) : </label>
       <div>
-        <input type="file" name="Photo" onchange="readURL(this);" >
-      </div>
-    </div>
-    
-    <div>
+        <h4>Resistration</h4>
+        <input type="text" name="SSC-Res"  class="validate[required,custom[integer]]" />
+      </div>     
+
+       <div>
+        <h4>Session</h4>
+        <input type="text" name="SSC-Session"  class="validate[required,custom[integer]]" />
+      </div>         
+
       <div>
-        <input type="button" name="" class="next_btn" value="Next" />
-      </div>
-    </div>
-  </fieldset>
+        <h4>Passing Year</h4>
+        <input type="text" name="SSC-PY"  class="validate[required,custom[integer]]" />
+      </div>     
 
-
-  <!-- fieldsets -->
-  <fieldset>
-
-  <h3 class="e-heading">Secondary School Certificate (SSC)</h3>
-
-  	 <div>
-  	 <label for="">Roll : </label>
       <div>
-        <input type="text" name="SSC-Roll"  class="validate[required,custom[integer]] input-field"  autocomplete="off" />
-      </div>
-    </div>  
+        <h4>Board</h4>
+        <select name="SSC-Board" class="validate[required]" >
+          <option value="" selected>Select One</option>
+          <option value="barisal">Barisal</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="comilla">Comilla</option>
+            <option value="dhaka">Dhaka</option>
+          <option value="dinajpur">Dinajpur</option>
+          <option value="jessore">Jessore</option>
+            <option value="rajshahi">Rajshahi</option>
+            <option value="sylhet">Sylhet</option>
+            <option value="madrasah">Madrasah</option>
+          <option value="tec">Technical</option>
+          <option value="dibs">DIBS(Dhaka)</option>
+        </select> 
+      </div>      
 
-    <div>
-      <label for="">Board : </label>
       <div>
-        <select name="SSC-Board" class="validate[required] input-field" >
-			<option value="" selected>Select One</option>
-			<option value="barisal">Barisal</option>
-			<option value="chittagong">Chittagong</option>
-			<option value="comilla">Comilla</option>
-		    <option value="dhaka">Dhaka</option>
-			<option value="dinajpur">Dinajpur</option>
-			<option value="jessore">Jessore</option>
-		    <option value="rajshahi">Rajshahi</option>
-		    <option value="sylhet">Sylhet</option>
-		    <option value="madrasah">Madrasah</option>
-			<option value="tec">Technical</option>
-			<option value="dibs">DIBS(Dhaka)</option>
-		</select> 
-      </div>
-    </div>     
+        <h4>Group</h4>
+        <select name="SSC-Group" class="validate[required]">
+          <option value="" selected>Select</option>
+          <option value="Science">Science</option>
+          <option value="Arts">Arts</option>
+          <option value="Commerce">Commerce</option>
+        </select>
+      </div>      
 
-
-    <div>
-      <label for="">Passing Year : </label>
       <div>
-        <select name="SSC-Year" class="validate[required] input-field" >
-								<option value="" selected>Select</option>
-								<option value="2015" selected>2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-								<option value="2011">2011</option>
-							</select>
-      </div>
-    </div>     
+        <h4>GPA</h4>
+        <input type="text" name="SSC-Gpa"  class="validate[required,custom[number]]" />
+      </div>      
 
-    <div>
-      <label for="">Group : </label>
+
+
+      <h5 style="margin-top:40px;">Higher Secondary School Certificate (HSC)</h5>
+
       <div>
-        <select name="SS-CGroup" class="validate[required] input-field">
-								<option value="" selected>Select</option>
-								<option value="Science">Science</option>
-								<option value="Arts">Arts</option>
-								<option value="Commerce">Commerce</option>
-							</select>
-      </div>
-    </div>    
+        <h4>Roll</h4>
+        <input type="text" name="HSC-Roll"  class="validate[required,custom[integer]]" />
+      </div>     
 
-    <div>
-      <label for="">GPA : </label>
       <div>
-        <input type="text" name="SSC-Gpa"  class="validate[required,custom[number]] input-field"  autocomplete="off" />
-      </div>
-    </div>   	 
+        <h4>Resistration</h4>
+        <input type="text" name="HSC-Res"  class="validate[required,custom[integer]]" />
+      </div>     
 
-    <h3 class="e-heading">Higher Secondary School Certificate (HSC)</h3>
+       <div>
+        <h4>Session</h4>
+        <input type="text" name="HSC-Session"  class="validate[required,custom[integer]]" />
+      </div>     
 
-    <!-- HSC -->
-    <div>
-  	 <label for="">Roll : </label>
       <div>
-        <input type="text" name="HSC-Roll"  class="validate[required,custom[integer]] input-field"  autocomplete="off" />
-      </div>
-    </div>  
+        <h4>Passing Year</h4>
+        <input type="text" name="HSC-PY"  class="validate[required,custom[integer]]" />
+      </div>  
 
-    <div>
-      <label for="">Board : </label>
       <div>
-        <select name="HSC-Board" class="validate[required] input-field" >
-			<option value="" selected>Select One</option>
-			<option value="barisal">Barisal</option>
-			<option value="chittagong">Chittagong</option>
-			<option value="comilla">Comilla</option>
-		    <option value="dhaka">Dhaka</option>
-			<option value="dinajpur">Dinajpur</option>
-			<option value="jessore">Jessore</option>
-		    <option value="rajshahi">Rajshahi</option>
-		    <option value="sylhet">Sylhet</option>
-		    <option value="madrasah">Madrasah</option>
-			<option value="tec">Technical</option>
-			<option value="dibs">DIBS(Dhaka)</option>
-		</select> 
-      </div>
-    </div>     
+        <h4>Board</h4>
+        <select name="HSC-Board" class="validate[required]" >
+          <option value="" selected>Select One</option>
+          <option value="barisal">Barisal</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="comilla">Comilla</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="dinajpur">Dinajpur</option>
+          <option value="jessore">Jessore</option>
+          <option value="rajshahi">Rajshahi</option>
+          <option value="sylhet">Sylhet</option>
+          <option value="madrasah">Madrasah</option>
+          <option value="tec">Technical</option>
+          <option value="dibs">DIBS(Dhaka)</option>
+        </select> 
+      </div>      
 
-
-    <div>
-      <label for="">Passing Year : </label>
       <div>
-        <select name="HSC-Year" class="validate[required] input-field" >
-								<option value="" selected>Select</option>
-								<option value="2015" selected>2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-								<option value="2011">2011</option>
-							</select>
-      </div>
-    </div>     
+        <h4>Group</h4>
+        <select name="HSC-Group" class="validate[required]">
+          <option value="" selected>Select</option>
+          <option value="Science">Science</option>
+          <option value="Arts">Arts</option>
+          <option value="Commerce">Commerce</option>
+        </select>
+      </div>      
 
-    <div>
-      <label for="">Group : </label>
       <div>
-        <select name="HSC-Group" class="validate[required] input-field">
-								<option value="" selected>Select</option>
-								<option value="Science">Science</option>
-								<option value="Arts">Arts</option>
-								<option value="Commerce">Commerce</option>
-							</select>
+        <h4>GPA</h4>
+        <input type="text" name="HSC-Gpa"  class="validate[required,custom[number]]" />
+      </div> 
+ 
+
+      <div class="btn-dv">
+            <input type="button" class="btn prev-btn" value="Prev" />
+            <input type="button" class="btn next-btn con-b" value="Next" />
       </div>
-    </div>    
+    </fieldset>
 
-    <div>
-      <label for="">GPA : </label>
-      <div>
-        <input type="text" name="HSC-Gpa"  class="validate[required,custom[number]] input-field"  autocomplete="off" />
-      </div>
-    </div>  
+    <fieldset id="review"></fieldset>
 
 
-    <div>
-      <div>
-        <input type="button" name="previous" class="pre_btn" value="Previous" />
-        <input type="button" name="" class="next_btn con-b" value="Next" />
-      </div>
-    </div>
-
-  </fieldset>
-
-
-  <fieldset id="all-f">
-
-
-
-
-  </fieldset>
-
-  <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" >
-  
+  <input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
   
 </form>

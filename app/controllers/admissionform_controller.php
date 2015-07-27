@@ -15,28 +15,19 @@ class admissionform extends Controller{
 
             //check if form loaded propely
             if( Token::check(Input::get('token')) ){
-               // echo $this->model->process();
+                echo $this->model->process();
 
 
-            	
-
+    
             	
             }
             else{
-                Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-                require_once SITE_PATH.'/app/controllers/error_controller.php';
-                $control = new error();
-                $control->index();
-                return FALSE;
+                return miscellaneous::Error();
             }
 
 		}
 		else{
-			Session::flush('sure','404: Page does not exists!<br/>Are you sure what you are looking for?');
-            require_once SITE_PATH.'/app/controllers/error_controller.php';
-            $control = new error();
-            $control->index();
-            return FALSE;
+			return miscellaneous::Error();
 		}
 	}
 
