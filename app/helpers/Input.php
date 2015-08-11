@@ -36,7 +36,7 @@ class Input {
             return SANATIZE::escape($_GET[$item]);
         }
         
-        return '';
+        return null;
     }
 
 }

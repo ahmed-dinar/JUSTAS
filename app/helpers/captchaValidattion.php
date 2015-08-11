@@ -1,15 +1,12 @@
 <?php
 
-class captcha extends Controller{
-
-	function __construct() {
-        parent::__construct(); 
-    }
-
-    public function index(){
+class captchaValidattion{
 
 
-    	if(!isset( $_POST["recaptcha_challenge_field"] ) || !isset($_POST["recaptcha_response_field"]) ){
+    public static function ok(){
+
+
+      if(!isset( $_POST["recaptcha_challenge_field"] ) || !isset($_POST["recaptcha_response_field"]) ){
             return miscellaneous::Error();
       }
 
@@ -21,11 +18,10 @@ class captcha extends Controller{
                                     $_POST["recaptcha_challenge_field"],
                                     $_POST["recaptcha_response_field"]);
 
-      if (!$resp->is_valid) {
-        // What happens when the CAPTCHA was entered incorrectly
-        echo json_encode(false);
+      if ($resp->is_valid) {
+        return true;
       } else {
-        echo json_encode(true);
+        return false;
       }
 
 	}

@@ -5,7 +5,11 @@ class View {
 	function __construct(){}
 
 	//this function is used to include the views files
-	public function render($name){
+	public function render($name,$data = ''){
+
+		if( is_array($data) ) {
+            extract($data);
+        }
 
 		//include header 
 		require_once SITE_PATH .'/app/views/header.php';

@@ -12,8 +12,12 @@ class app{
 
 		$url = $this->parseUrl();
 
+ 
+
         //set home as our default controller
 		$file = SITE_PATH.'/app/controllers/home_controller.php';
+
+ 
 
         //if no  url type then load home
 		if(empty($url[0])){
@@ -25,6 +29,8 @@ class app{
 
         //if controller not empty then check if it is a valid conroller
         $file = SITE_PATH.'/app/controllers/' . $url[0] . '_controller.php';
+
+
 
         //if valid then include it
         if(file_exists($file)){

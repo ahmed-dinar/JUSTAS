@@ -11,6 +11,7 @@ class DB {
             $_query,
             $_error = false,
             $_results,
+            $_lastInsertedId,
             $_count = 0;
             
     
@@ -57,6 +58,7 @@ class DB {
         
         if($this->_query->execute()){
             $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+            $this->_lastInsertedId = $this->_pdo->lastInsertId();
             $this->_count = $this->_query->rowCount();
         }
         else{
@@ -130,6 +132,11 @@ class DB {
     //return the quering results
     public function results(){
         return $this->_results;
+    }    
+
+    //return the quering results
+    public function getLastInsertId(){
+        return $this->_lastInsertedId;
     }
     
 

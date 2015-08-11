@@ -172,6 +172,7 @@ body
     color: #FFF;
     border-right: 1px solid #6b7c8e ; 
     font-size: 14px;
+    background:#343D45
 }
 
 .f-c {
@@ -203,7 +204,7 @@ body
 #fs h3{
     font-family:  Tahoma;
     color: rgba(0,0,0,0.5);;
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    
 }
 
 #fs  fieldset{
@@ -427,12 +428,13 @@ background: #F0F0F0;
   outline: none;
   border-color: #2c97de;
   box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
+  background: #fff;
 }
 
 .btn{
     /* button style */
   border: none;
-  background: #0988CB;
+  background: #1547A8;
   border-radius: .25em;
   padding: 10px 17px;
   color: #fff;
@@ -456,59 +458,64 @@ background: #F0F0F0;
 
 /**progressbar*/
 #progressbar {
-  margin-bottom: 30px;
   overflow: hidden;
   /*CSS counters to number the steps*/
-  counter-reset: step;
-  width: 600px;
-  margin: 0px auto 50px auto;
+  width:67%;
+  margin: 0px auto 20px auto;
   font-family: verdana,arial,helvetica,sans-serif; 
+  padding: 0px;
 }
 #progressbar li {
   list-style-type: none;
-  color: #000;
-  font-size: 9px;
+  color: #fff;
+  font-size: 11px;
   float: left;
   position: relative;
-  border: 0px solid #000;
-  margin-right: 30px;
-  width: 140px;
   text-align: center;
   text-transform: uppercase;
-}
-#progressbar li:before {
-  content: counter(step);
-  counter-increment: step;
-  width: 15px;
-  display: block;
-  font: 14px verdana,arial,helvetica,sans-serif; 
-  color: #fff;
-  background: #000;
-  border-radius: 3px;
-  margin: 0px auto;
-  padding: 5px 10px 5px 10px;
-
-}
-/*progressbar connectors*/
-#progressbar li:after {
-  content: '';
-  width: 101%;
-  height: 2px;
-  background: #000;
-  position: relative;
-  float: left;
-  top: -28px;
-  left: -60%;
+  padding: 22px 0px 22px 10px;
+  width: 160px;
+  background:   url('../img/arow.png') no-repeat transparent;
+  text-align: left;
+  margin: 0px;
 }
 
-#progressbar li:first-child:after {
-  /*connector not needed before the first step*/
-  content: none; 
-}
+
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-  background: #27AE60;
+#progressbar li.active{
   color: white;
+  background: url('../img/arow_active.png') no-repeat transparent;
 }
 
+
+#review-field{
+  width: 80%;
+}
+
+
+#ac-table,
+#review-table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: verdana,arial,helvetica,sans-serif; 
+    color: #333;
+    width: 100%;
+}
+
+#review-table th,#review-table td,#ac-table th,#ac-table td{
+  border:1px solid #ccc;
+  margin: 0px;
+  padding: 0px;
+  padding: 7px 5px;
+  font-size: 12px;
+} 
+
+#review-table th{
+  text-align: left;
+  width: 30%;
+}
+
+#ac-table th,#ac-table td{
+  width: 80px;
+}

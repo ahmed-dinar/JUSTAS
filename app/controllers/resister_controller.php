@@ -26,11 +26,11 @@ class resister extends Controller{
   				  
             //processing resistration and catch exception
             if( $this->model->process() ){
-               Session::flush('resSuccess','Resistration successfull,You can login now!');
+               Session::flush('resSuccess',Messages::res_success());
                header("Location: ".SITE_URL."/login");
             }
             else{
-               echo "Resistration unseccessfull! Unknown error";
+               echo Messages::res_unsuccess();
             }
   			}
   			else{

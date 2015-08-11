@@ -2,7 +2,6 @@
 
 //start the sesson
 session_start();
-$_SESSION['captcha_code'] = "";
 
 
 //this global array is for database quering
@@ -43,13 +42,13 @@ spl_autoload_register(function($className) {
     	$exists = file_exists($classFile);
     }
 
-    // check core directory for the class file if cannot find any other directory
+    // check database directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/database/'. $className . '.php';
         $exists = file_exists($classFile);
     }
 
-        // check core directory for the class file if cannot find any other directory
+        // check helpers directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/helpers/'. $className . '.php';
         $exists = file_exists($classFile);
@@ -61,7 +60,7 @@ spl_autoload_register(function($className) {
     	$exists = file_exists($classFile);
     }
 
-     // check core directory for the class file if cannot find any other directory
+     // check libs directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/libs/'. $className . '.php';
         $exists = file_exists($classFile);
@@ -76,6 +75,7 @@ spl_autoload_register(function($className) {
 
 });
 
+//require the google recaptcha file
 require_once("/app/helpers/recaptchalib.php");
 
 

@@ -19,7 +19,7 @@
 	<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
 </head>
-<body style="background-color: #D8D7E3;">
+<body style="background-color: #F0F0F0">
 
 	<div class="full_w Top"></div>
 
@@ -41,6 +41,7 @@
 						$user  = new Users();
 						if($user->isLoggedIn()){
 					?>
+						<a href="<?php echo SITE_URL; ?>/user/profile" class="medium button blue">Your Profile</a>
 						<a href="<?php echo SITE_URL; ?>/login/logout" class="medium button blue">Log Out</a>
 					<?php
 						}

@@ -17,7 +17,6 @@ class Controller{
 		// file path of the model
 		$file = SITE_PATH . '/app/models/'.$name. '_model.php';
 
-
 		//check if model is valid
 		if( file_exists($file) ){
             require $file;

@@ -43,7 +43,7 @@ else{
 			<input type="password" name="log-password" placeholder="Password" class="validate[required] in-fl" />
 
 				<input type="checkbox" name="remember"  /><label> Remember me</label>
-				<span><a href="<?php echo SITE_URL; ?>/user/recoverpassword" >Forgot your password?</a></span>
+				<span><a href="<?php echo SITE_URL; ?>/recoverpassword" >Forgot your password?</a></span>
 
 			<br/>
 			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" >

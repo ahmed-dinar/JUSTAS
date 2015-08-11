@@ -53,6 +53,12 @@ class Users {
         if(!$this->_db->insert('users',$fields)){
             throw new Exception("Problem Creaitng user");
         }
+    }   
+
+    public function apply($fields = array()){
+        if(!$this->_db->insert('applications',$fields)){
+            throw new Exception("Problem applying!");
+        }
     }
     
     /*
@@ -144,6 +150,11 @@ class Users {
     //all information about this user
     public function data(){
         return $this->_data;
+    }    
+
+    //all information about this user
+    public function getDB(){
+        return $this->_db;
     }
     
     //check if user already logged in
