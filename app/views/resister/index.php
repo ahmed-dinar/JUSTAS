@@ -1,5 +1,12 @@
 <?php 
 
+$admin  = new admins();
+if( $admin->isLoggedIn() ){
+	$location = SITE_URL;
+	header('Location: ' . $location .'/admin');
+	exit();
+}
+
 $user  = new Users();
 if($user->isLoggedIn()){
 	header('Location: ' . SITE_URL);
@@ -17,17 +24,17 @@ if($user->isLoggedIn()){
 
 		jQuery(document).ready(function(){
 
-			$("#resform").validationEngine();
-			$("#resform").bind("jqv.field.result", function(event, field, errorFound, prompText){ console.log(errorFound) });
+			//$("#resform").validationEngine();
+		//	$("#resform").bind("jqv.field.result", function(event, field, errorFound, prompText){ console.log(errorFound) });
 
 
 			$("#resform" ).submit(function( e ) {
-			  	e.preventDefault();
+			 // 	e.preventDefault();
 
-			  	$val = jQuery("#resform").validationEngine('validate');
-			  	if( $val == false ){
-			  		return 0;
-			  	}
+			 // 	$val = jQuery("#resform").validationEngine('validate');
+			  //	if( $val == false ){
+			  	//	return 0;
+			  	//}
 
 			  	
 
@@ -37,7 +44,7 @@ if($user->isLoggedIn()){
 				$("#var-btn").attr('value','Varifying..');
 
 
-				$.ajax({
+				/*$.ajax({
 					url: 'http://localhost/justas/captcha',
 	            	type: 'post',
 	           		dataType : "json",
@@ -67,7 +74,7 @@ if($user->isLoggedIn()){
 						$("#var-btn").css("display", "none");
 					  	alert(strError);
 					}
-				});
+				});*/
 
 			});
 

@@ -18,15 +18,14 @@ $GLOBALS['config'] = array(
     ),
     'session' => array(
         'session_name' => 'user',
+        'admin_session_name' => 'admin',
         'token_name' => 'token'
     )
 );
 
 
-// load classes with PHP autoload class
-spl_autoload_register(function($className) {
-
-
+function stack_2145($className)
+{
     $exists = false;
    
 
@@ -38,8 +37,8 @@ spl_autoload_register(function($className) {
     
     // check core directory for the class file if cannot find any other directory
     if( $exists == false ){
-    	$classFile =  SITE_PATH.'/app/core/'. $className . '.php';
-    	$exists = file_exists($classFile);
+        $classFile =  SITE_PATH.'/app/core/'. $className . '.php';
+        $exists = file_exists($classFile);
     }
 
     // check database directory for the class file if cannot find any other directory
@@ -56,8 +55,8 @@ spl_autoload_register(function($className) {
 
     // check models directory for the class file if cannot find any other directory
     if( $exists == false ){
-    	$classFile =  SITE_PATH.'/app/models/'. $className . '_model.php';
-    	$exists = file_exists($classFile);
+        $classFile =  SITE_PATH.'/app/models/'. $className . '_model.php';
+        $exists = file_exists($classFile);
     }
 
      // check libs directory for the class file if cannot find any other directory
@@ -73,10 +72,12 @@ spl_autoload_register(function($className) {
         /* Error Generation Code Here */
     } 
 
-});
+}
+spl_autoload_register("stack_2145");
+
 
 //require the google recaptcha file
-require_once("/app/helpers/recaptchalib.php");
+require_once(SITE_PATH."/app/helpers/recaptchalib.php");
 
 
 if( Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))  ){

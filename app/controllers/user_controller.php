@@ -11,7 +11,6 @@ class user extends Controller{
     }
 
     public function profile(){
-
     	$user  = new Users();
 		if($user->isLoggedIn()){
 			$this->view->render("user/profile/index");

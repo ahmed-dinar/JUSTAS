@@ -21,10 +21,10 @@ class admissionform extends Controller{
    //step 2 of application form
   public function step2(){
 
-      if( Session::exists('prev-page') && Session::getDel('prev-page') === '3' ){
-          $data = $this->model->getStep2();
-          $this->view->render("admissionform/step2",$data);
-          return;
+      if(Session::exists('invalid-captcha')){
+        $data = $this->model->getStep2();
+        $this->view->render("admissionform/step2",$data);
+        return;
       }
 
 
@@ -126,10 +126,8 @@ class admissionform extends Controller{
        $ok = application_requirement::ok($D);
        if(!$ok){
           Session::flush('not-eligible',Messages::notEligible( $D['admission_unit'] ));
-          Redirect::to(SITE_URL . '/admissionform/step1');
+         //s Redirect::to(SITE_URL . '/admissionform/step1');
        }
-
-
 
 
       $data = $this->model->getStep2();
@@ -138,13 +136,7 @@ class admissionform extends Controller{
 
 
   //step 3 of application form
-  public function step3(){
-
-      if(Session::exists('invalid-captcha')){
-        $data = $this->model->getStep3();
-        $this->view->render("admissionform/step3",$data);
-        return;
-      }
+  public function final_step(){
 
 
       if(null !== Input::get('name')) {
@@ -196,16 +188,15 @@ class admissionform extends Controller{
         return miscellaneous::Error();
       }
  
-      $data = $this->model->getStep3();
-      $this->view->render("admissionform/step3",$data);
+
   } 
 
 
    //run application process
   public function run(){
 
-    miscellaneous::deleteApplySeesion();
-
+    //self::final_step();
+      
     if( Input::exists('post') ){
 
             //check if form loaded propely
@@ -214,6 +205,8 @@ class admissionform extends Controller{
                 //check captcha security
                 if(  captchaValidattion::ok() ){
 
+                    self::final_step();
+
                     $applyID = $this->model->process();
                     if( $applyID ){
                         echo "Success..applyID = " . $applyID.'<br/>';
@@ -221,25 +214,23 @@ class admissionform extends Controller{
                     else{
                         echo "SORRY! Error apply..try again!";
                     }
+                    miscellaneous::deleteApplySeesion();
                 }
                 else{
                     Session::flush('invalid-captcha',Messages::invalidCaptcha());
-                    Redirect::to(SITE_URL . '/admissionform/step3');
+                    Redirect::to(SITE_URL . '/admissionform/step2');
                 }
             
-
-
-          //
-              
             }
             else{
-                return miscellaneous::Error();
+                 return miscellaneous::Error();
             }
 
     }
     else{
       return miscellaneous::Error();
     }
+
   }
 
 

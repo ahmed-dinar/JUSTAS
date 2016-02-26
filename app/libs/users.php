@@ -131,7 +131,20 @@ class Users {
         }
         return false;
     }
+
+
     
+    public function applications(){
+        $data = $this->_db->get('applications', array('userid','=',$this->data()->id));
+        if($data->count()){
+            return $data;
+        }
+        else{
+            return false;
+        }
+    }    
+
+
     public function exists(){
         return (!empty($this->_data)) ? true : false;
     }

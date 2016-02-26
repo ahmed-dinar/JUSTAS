@@ -7,7 +7,9 @@ class captchaValidattion{
 
 
       if(!isset( $_POST["recaptcha_challenge_field"] ) || !isset($_POST["recaptcha_response_field"]) ){
+
             return miscellaneous::Error();
+       
       }
 
 	   $privatekey = "6LeMXwoTAAAAAB5MWvqGnKivfvIuF_H4L4G0ysgV";

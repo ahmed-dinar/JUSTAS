@@ -1,6 +1,11 @@
 <?php 
 
-
+$admin  = new admins();
+if( $admin->isLoggedIn() ){
+	$location = SITE_URL;
+	header('Location: ' . $location .'/admin');
+	exit();
+}
 
 $user  = new Users();
 if($user->isLoggedIn()){

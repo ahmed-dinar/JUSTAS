@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/style.css" />
     <link rel="stylesheet" type="text/css"  href="<?php echo SITE_URL; ?>/public/css/captcha.css" />
+    
 
     <script src="<?php echo SITE_URL; ?>/public/js/jquery-1.8.2.min.js" ></script>
     
@@ -36,24 +37,38 @@
 					</div>
 
 
-				<div class="log_in">
-					<?php 
-						$user  = new Users();
-						if($user->isLoggedIn()){
-					?>
-						<a href="<?php echo SITE_URL; ?>/user/profile" class="medium button blue">Your Profile</a>
-						<a href="<?php echo SITE_URL; ?>/login/logout" class="medium button blue">Log Out</a>
-					<?php
-						}
-						else{
-					?>
-						<a href="<?php echo SITE_URL; ?>/login" class="medium button blue">Login</a>
-						<a href="<?php echo SITE_URL; ?>/resister" class="medium button blue">Resister</a>
-					<?php
-						}
-					?>
-					
-				</div>
+				<?php
+					$admin  = new admins();
+					if(!$admin->isLoggedIn()){
+				?>
+					<div class="log_in">
+						<?php 
+							$user  = new Users();
+							if($user->isLoggedIn()){
+						?>
+							<a href="<?php echo SITE_URL; ?>/user/profile" class="medium button blue">Your Profile</a>
+							<a href="<?php echo SITE_URL; ?>/login/logout" class="medium button blue">Log Out</a>
+						<?php
+							}
+							else{
+						?>
+							<a href="<?php echo SITE_URL; ?>/login" class="medium button blue">Login</a>
+							<a href="<?php echo SITE_URL; ?>/resister" class="medium button blue">Resister</a>
+						<?php
+							}
+						?>
+						
+					</div>
+
+				<?php
+				}
+				else{
+				?>
+					<a href="<?php echo SITE_URL; ?>/admin/logout" class="medium button blue">Log Out</a>
+				<?php
+				}
+				?>
+
 
 
 
@@ -66,12 +81,14 @@
 		<div class="center_d menu_container">
 		   <ul>
 		      <li><a href="<?php echo SITE_URL; ?>" class="f-c">Home</a></li>
-		      <li><a href="<?php echo SITE_URL; ?>/admissionform">Online Admission</a></li>
-		      <li><a href="#">Admission Circular</a></li>
-		      <li><a href="#">Important Dates and Times</a></li>
-		      <li><a href="#">Results</a></li>
-		      <li><a href="#">Notices</a></li>
-		      <li><a href="#">Contact Us</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/admissionform">Apply Online</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/procedure">Admission Procedure</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/circular">Admission Circular</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/user/profile">Admit Card</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/payment">Payment</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/result">Results</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/notices">Notices</a></li>
+		      <li><a href="<?php echo SITE_URL; ?>/contact">Contact Us</a></li>
 		   </ul>
 		</div>
 	</div>
@@ -79,4 +96,6 @@
 
 
 	<div class="center_d">
-		<div id="content">
+		<div id="content" style="min-height:472px;padding: 20px">
+
+			<marquee behavior="scroll" direction="left" id="news" >News!...News!...News!...News! </marquee>

@@ -125,7 +125,8 @@ class DB {
 
     //if query is a single command return the only element in result
     public function first(){
-        return $this->results()[0];
+        $ret = $this->results();
+        return $ret[0];
     }
     
 
@@ -139,7 +140,6 @@ class DB {
         return $this->_lastInsertedId;
     }
     
-
     /*
         insert into database
         $table is the desire table where we insert something

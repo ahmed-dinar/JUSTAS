@@ -44,5 +44,24 @@ class Messages{
 	}
 
 
+	//return eligible  message
+	public static function payUpdateIDnotfound(){
+		$msg = "ID not Found. Please check ID!";
+		return $msg;
+	}	
+
+	//return eligible  message
+	public static function payUpdateError(){
+		$msg = "Error Updating! Plese try again!";
+		return $msg;
+	}	
+
+	//return eligible  message
+	public static function payUpdateSuccess(){
+		$msg = "UPDATED!";
+		return $msg;
+	}
+
+
 
 }

@@ -1,5 +1,7 @@
 <?php 
 
+
+
 $user  = new Users();
 if(!$user->isLoggedIn()){
   Session::flush('signin-first','You need to log in to apply');
@@ -44,27 +46,27 @@ if(!$user->isLoggedIn()){
 
       <h5>Secondary School Certificate (SSC)</h5>
 
-      <div>
+      <div class="roll">
         <h4>Roll</h4>
         <input type="text" value="222" name="ssc_roll"  class="validate[required,custom[integer]]" />
       </div>   
 
-      <div>
+      <div class="registration">
         <h4>Resistration</h4>
         <input type="text" value="22" name="ssc_res"  class="validate[required,custom[integer]]" />
       </div>     
 
-       <div>
+       <div class="session">
         <h4>Session</h4>
         <input type="text" value="22" name="ssc_session"  class="validate[required]" />
       </div>         
 
-      <div>
+      <div class="passing year">
         <h4>Passing Year</h4>
         <input type="text" value="222" name="ssc_py"  class="validate[required,custom[integer]]" />
       </div>     
 
-      <div>
+      <div class="board">
         <h4>Board</h4>
         <select name="ssc_board" class="validate[required]" >
           <option value="" >Select One</option>
@@ -82,7 +84,7 @@ if(!$user->isLoggedIn()){
         </select> 
       </div>      
 
-      <div>
+      <div class="group">
         <h4>Group</h4>
         <select name="ssc_group" class="validate[required]">
           <option value="" >Select</option>
@@ -92,7 +94,7 @@ if(!$user->isLoggedIn()){
         </select>
       </div>      
 
-      <div>
+      <div class="gpa">
         <h4>GPA</h4>
         <input type="text" value="1515" name="ssc_gpa"  class="validate[required,custom[number]]" />
       </div>      

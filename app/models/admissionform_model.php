@@ -11,33 +11,41 @@ class admissionform_model extends Model{
 
         $user = new Users();
 
+        $data = self::getAll();
+
         try{
              $user->apply( array(
                 'userid' => $user->data()->id,
-                'unit' => Input::get('final_unit'),
-                'name' => Input::get('final_name'),
-                'father' => Input::get('final_fathername'),
-                'mother' => Input::get('final_mothername'),
-                'sex' => Input::get('final_gender'),
-                'dob' => Input::get('final_dob'),
-                'present' => Input::get('final_pre'),
-                'permanent' => Input::get('final_per'),
-                'contact' => Input::get('final_contact'),
-                'sscroll' => Input::get('final_sscroll'),
-                'sscres' => Input::get('final_sscres'),
-                'sscsession' => Input::get('final_sscsession'),
-                'sscpa' => Input::get('final_sscpa'),
-                'sscgpa' => Input::get('final_sscgpa'),
-                'sscboard' => Input::get('final_sscboard'),               
-                'hscroll' => Input::get('final_hscroll'),
-                'hscres' => Input::get('final_hscres'),
-                'hscsession' => Input::get('final_hscsession'),
-                'hscpa' => Input::get('final_hscpa'),
-                'hscgpa' => Input::get('final_hscgpa'),
-                'hscboard' => Input::get('final_hscboard'),
+                'unit' => $data['admission_unit'],
+                'name' => $data['admission_name'],
+                'father' => $data['admission_father_name'],
+                'mother' => $data['admission_mother_name'],
+                'sex' => $data['admission_gender'],
+                'dob' => $data['admission_dob'],
+                'present' => $data['admission_preadress'],
+                'permanent' => $data['admission_peradress'],
+                'contact' => $data['admission_contact'],
+                'sscroll' => $data['ssc_roll'],
+                'sscres' => $data['ssc_res'],
+                'sscsession' => $data['ssc_session'],
+                'sscpa' => $data['ssc_py'],
+                'sscgpa' => $data['ssc_gpa'],
+                'sscboard' => $data['ssc_board'],               
+                'hscroll' => $data['hsc_roll'],
+                'hscres' => $data['hsc_res'],
+                'hscsession' => $data['hsc_session'],
+                'hscpa' => $data['hsc_py'],
+                'hscgpa' => $data['hsc_gpa'],
+                'hscboard' => $data['hsc_board'],
+                'status' => false,
                 'applytime' => date('Y-m-d H:i:s')
             ));
-            return $user->getDB()->getLastInsertId();
+            $liid = $user->getDB()->getLastInsertId();
+
+          //  $rid = rand(100,999) . $liid;
+            $rid = $liid;
+
+            return $rid;
         }
         catch(Exception $e){
             return 0;
@@ -111,8 +119,7 @@ class admissionform_model extends Model{
 
     }    
 
-    public function getStep3(){
-
+    public function getAll(){
          $st1 = self::getStep1();
          $st2 = self::getStep2();
          $st3 = $st1 + $st2;
