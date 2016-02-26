@@ -2,7 +2,6 @@
 
 //start the sesson
 session_start();
-$_SESSION['captcha_code'] = "";
 
 
 //this global array is for database quering
@@ -19,15 +18,14 @@ $GLOBALS['config'] = array(
     ),
     'session' => array(
         'session_name' => 'user',
+        'admin_session_name' => 'admin',
         'token_name' => 'token'
     )
 );
 
 
-// load classes with PHP autoload class
-spl_autoload_register(function($className) {
-
-
+function stack_2145($className)
+{
     $exists = false;
    
 
@@ -39,17 +37,17 @@ spl_autoload_register(function($className) {
     
     // check core directory for the class file if cannot find any other directory
     if( $exists == false ){
-    	$classFile =  SITE_PATH.'/app/core/'. $className . '.php';
-    	$exists = file_exists($classFile);
+        $classFile =  SITE_PATH.'/app/core/'. $className . '.php';
+        $exists = file_exists($classFile);
     }
 
-    // check core directory for the class file if cannot find any other directory
+    // check database directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/database/'. $className . '.php';
         $exists = file_exists($classFile);
     }
 
-        // check core directory for the class file if cannot find any other directory
+        // check helpers directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/helpers/'. $className . '.php';
         $exists = file_exists($classFile);
@@ -57,11 +55,11 @@ spl_autoload_register(function($className) {
 
     // check models directory for the class file if cannot find any other directory
     if( $exists == false ){
-    	$classFile =  SITE_PATH.'/app/models/'. $className . '_model.php';
-    	$exists = file_exists($classFile);
+        $classFile =  SITE_PATH.'/app/models/'. $className . '_model.php';
+        $exists = file_exists($classFile);
     }
 
-     // check core directory for the class file if cannot find any other directory
+     // check libs directory for the class file if cannot find any other directory
     if( $exists == false ){
         $classFile =  SITE_PATH.'/app/libs/'. $className . '.php';
         $exists = file_exists($classFile);
@@ -74,9 +72,12 @@ spl_autoload_register(function($className) {
         /* Error Generation Code Here */
     } 
 
-});
+}
+spl_autoload_register("stack_2145");
 
-require_once("/app/helpers/recaptchalib.php");
+
+//require the google recaptcha file
+require_once(SITE_PATH."/app/helpers/recaptchalib.php");
 
 
 if( Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))  ){

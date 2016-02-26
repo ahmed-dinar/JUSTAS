@@ -53,6 +53,12 @@ class Users {
         if(!$this->_db->insert('users',$fields)){
             throw new Exception("Problem Creaitng user");
         }
+    }   
+
+    public function apply($fields = array()){
+        if(!$this->_db->insert('applications',$fields)){
+            throw new Exception("Problem applying!");
+        }
     }
     
     /*
@@ -125,7 +131,20 @@ class Users {
         }
         return false;
     }
+
+
     
+    public function applications(){
+        $data = $this->_db->get('applications', array('userid','=',$this->data()->id));
+        if($data->count()){
+            return $data;
+        }
+        else{
+            return false;
+        }
+    }    
+
+
     public function exists(){
         return (!empty($this->_data)) ? true : false;
     }
@@ -144,6 +163,11 @@ class Users {
     //all information about this user
     public function data(){
         return $this->_data;
+    }    
+
+    //all information about this user
+    public function getDB(){
+        return $this->_db;
     }
     
     //check if user already logged in

@@ -23,6 +23,14 @@ class Session {
     
     public static function get($name){
         return $_SESSION[$name];
+    }    
+
+    public static function getDel($name){
+       
+            $session = self::get($name);
+            self::delete($name);
+            return $session;
+     
     }
     
     public static function put($name, $value){

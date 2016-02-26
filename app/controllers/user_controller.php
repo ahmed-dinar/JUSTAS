@@ -7,11 +7,17 @@ class user extends Controller{
     }
 
     public function index(){
-    	return miscellaneous::Error();
+        return miscellaneous::Error();
     }
 
-    public function recoverpassword(){
-    	echo "<h1>Under Construction!</h1>";
+    public function profile(){
+    	$user  = new Users();
+		if($user->isLoggedIn()){
+			$this->view->render("user/profile/index");
+		}
+		else{
+    		return miscellaneous::Error();
+    	}
     }
 
 }
